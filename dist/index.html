@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aetheria Grand | Enchanted Tropical Resort</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../src/assets/icon.webp" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#FDFDFB] text-emerald-950 scroll-smooth selection:bg-emerald-200"
+  >
+    <nav
+      class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass rounded-full px-8 py-4 flex justify-between items-center transition-all duration-500 shadow-xl shadow-emerald-900/5"
+    >
+      <div
+        class="text-2xl font-extrabold tracking-tighter text-emerald-900 cursor-pointer"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        AETHERIA.
+      </div>
+
+      <div
+        class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-900/50"
+      >
+        <a href="#" class="hover:text-emerald-600 transition tracking-[0.3em]"
+          >Home</a
+        >
+        <a
+          href="#rooms"
+          class="hover:text-emerald-600 transition tracking-[0.3em]"
+          >Room</a
+        >
+        <a
+          href="#facilities"
+          class="hover:text-emerald-600 transition tracking-[0.3em]"
+          >Facilities</a
+        >
+        <a
+          href="#reviews"
+          class="hover:text-emerald-600 transition tracking-[0.3em]"
+          >Reviews</a
+        >
+        <a
+          href="#footer"
+          class="hover:text-emerald-600 transition tracking-[0.3em]"
+          >Contact</a
+        >
+      </div>
+
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 z-60">
+        <span
+          class="w-6 h-0.5 bg-emerald-900 transition-all duration-300 origin-center"
+        ></span>
+        <span
+          class="w-6 h-0.5 bg-emerald-900 transition-all duration-300"
+        ></span>
+        <span
+          class="w-6 h-0.5 bg-emerald-900 transition-all duration-300 origin-center"
+        ></span>
+      </button>
+
+      <div
+        id="mobile-menu"
+        class="fixed top-16 right-8 h-auto w-48 bg-white/95 backdrop-blur-2xl shadow-2xl rounded-br-4xl rounded-bl-4xl -translate-y-10 opacity-0 transition-all duration-500 ease-in-out z-50 flex flex-col p-10 md:hidden invisible border border-emerald-900/5 origin-top-right"
+      >
+        <div
+          class="flex flex-col gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-900"
+        >
+          <a
+            href="#"
+            class="mobile-link hover:text-emerald-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#rooms"
+            class="mobile-link hover:text-emerald-500 transition-colors"
+            >Room</a
+          >
+          <a
+            href="#facilities"
+            class="mobile-link hover:text-emerald-500 transition-colors"
+            >Facilities</a
+          >
+          <a
+            href="#reviews"
+            class="mobile-link hover:text-emerald-500 transition-colors"
+            >Reviews</a
+          >
+          <a
+            href="#footer"
+            class="mobile-link hover:text-emerald-500 transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="relative h-screen flex items-center justify-center px-6 overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=2000"
+          class="w-full h-full object-cover brightness-95"
+          alt="Resort View"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-[#FDFDFB]"
+        ></div>
+      </div>
+
+      <div class="relative z-10 text-center">
+        <p
+          class="text-[12px] uppercase tracking-[0.6em] text-emerald-900/60 mb-8"
+        >
+          Established in Excellence
+        </p>
+
+        <h1
+          class="text-6xl md:text-8xl font-serif font-bold text-emerald-900 leading-[1.1] mb-4"
+        >
+          Where Luxury <br />
+          <span class="italic font-normal text-emerald-600"
+            >Embraces Serenity.</span
+          >
+        </h1>
+
+        <p
+          class="text-slate-950 text-lg md:text-xl font-medium italic mb-12 whitespace-nowrap"
+        >
+          "Find your breath in the heart of luxury and nature."
+        </p>
+
+        <form
+          id="booking-form"
+          class="glass p-4 md:p-3 rounded-4xl md:rounded-full shadow-2xl inline-flex flex-col md:flex-row items-center gap-4 md:gap-1 border border-white/80 bg-white/40 backdrop-blur-2xl w-[95%] md:w-auto mx-auto"
+        >
+          <div
+            class="flex items-center w-full md:w-auto px-4 md:px-8 py-2 md:py-4 gap-4 border-b md:border-b-0 md:border-r border-emerald-900/10"
+          >
+            <div class="flex flex-1 gap-4">
+              <div class="flex flex-col flex-1">
+                <label
+                  class="text-[9px] uppercase font-bold tracking-widest text-emerald-600 mb-1"
+                  >Check In</label
+                >
+                <input
+                  type="date"
+                  id="checkin"
+                  required
+                  class="bg-transparent outline-none font-bold text-xs md:text-sm text-emerald-950 w-full"
+                />
+              </div>
+              <div
+                class="flex flex-col flex-1 border-l border-emerald-900/10 pl-4"
+              >
+                <label
+                  class="text-[9px] uppercase font-bold tracking-widest text-emerald-600 mb-1"
+                  >Check Out</label
+                >
+                <input
+                  type="date"
+                  id="checkout"
+                  required
+                  class="bg-transparent outline-none font-bold text-xs md:text-sm text-emerald-950 w-full"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center w-full md:w-auto px-4 md:px-8 py-2 md:py-4 gap-4"
+          >
+            <div class="flex flex-1 gap-4">
+              <div class="flex flex-col flex-1">
+                <label
+                  class="text-[9px] uppercase font-bold tracking-widest text-emerald-600 mb-1"
+                  >Adults</label
+                >
+                <select
+                  id="adults"
+                  class="bg-transparent outline-none font-bold text-xs md:text-sm text-emerald-950 appearance-none"
+                >
+                  <option>1 Adult</option>
+                  <option>2 Adults</option>
+                  <option>3 Adults</option>
+                  <option>4 Adults</option>
+                </select>
+              </div>
+              <div
+                class="flex flex-col flex-1 border-l border-emerald-900/10 pl-4"
+              >
+                <label
+                  class="text-[9px] uppercase font-bold tracking-widest text-emerald-600 mb-1"
+                  >Children</label
+                >
+                <select
+                  id="children"
+                  class="bg-transparent outline-none font-bold text-xs md:text-sm text-emerald-950 appearance-none"
+                >
+                  <option>0 Children</option>
+                  <option>1 Child</option>
+                  <option>2 Children</option>
+                  <option>3 Children</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            id="btn-booking"
+            class="w-full md:w-auto bg-emerald-900 text-white px-8 md:px-12 py-4 md:py-5 rounded-xl md:rounded-full font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-emerald-950 transition-all"
+          >
+            Reserve
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section id="rooms" class="py-32 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl font-serif font-bold text-emerald-900 mb-4">
+          Our Signature Suites
+        </h2>
+        <p class="text-emerald-800/60">
+          Every sanctuary is meticulously designed for your ultimate comfort
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div
+          class="bg-white rounded-4xl overflow-hidden shadow-xl shadow-emerald-900/5 border border-emerald-50 group flex flex-col"
+        >
+          <div class="relative h-64 overflow-hidden">
+            <div
+              class="absolute top-4 left-4 z-10 bg-orange-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg"
+            >
+              Popular
+            </div>
+            <img
+              src="../src/assets/room3.webp"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              alt="Superior Sanctuary"
+            />
+          </div>
+          <div class="p-8 flex flex-col grow">
+            <h3 class="text-2xl font-bold text-emerald-900 mb-3">
+              Superior Sanctuary
+            </h3>
+            <p class="text-emerald-800/50 text-sm leading-relaxed mb-6">
+              A curated minimalist retreat designed for the modern soul, where sunlight dances through tropical foliage to greet your morning.
+            </p>
+            <div class="space-y-3 mb-8">
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-blue-500 text-base">📶</span> Free High-Speed
+                WiFi
+              </div>
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-orange-400 text-base">🍳</span> Breakfast
+                Included
+              </div>
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-slate-400 text-base">☁️</span> King-size Signature Bedding
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <div class="text-2xl font-bold text-emerald-700 mb-6">
+                Rp 1.250.000
+                <span class="text-sm font-normal text-emerald-800/40"
+                  >/ night</span
+                >
+              </div>
+              <button
+                class="select-room w-full border-2 border-emerald-800 text-emerald-800 py-3 rounded-xl font-bold text-sm hover:bg-emerald-800 hover:text-white transition-all duration-300"
+              >
+                Select Room
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-4xl overflow-hidden shadow-xl shadow-emerald-900/5 border border-emerald-50 group flex flex-col"
+        >
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src="../src/assets/executive.webp"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              alt="Deluxe Oasis"
+            />
+          </div>
+          <div class="p-8 flex flex-col grow">
+            <h3 class="text-2xl font-bold text-emerald-900 mb-3">
+              Deluxe Oasis
+            </h3>
+            <p class="text-emerald-800/50 text-sm leading-relaxed mb-6">
+              Immerse yourself in grandeur. Our Deluxe space offers a boundless connection to the horizon, blurring the lines between indoor luxury and outdoor majesty.</p>
+            </p>
+
+            <div class="space-y-3 mb-8">
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-blue-500 text-base">📶</span> Free High-Speed
+                WiFi
+              </div>
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-orange-400 text-base">🍳</span> Breakfast
+                Included
+              </div>
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-emerald-500 text-base">🛁</span> Terrazzo Deep-soak Tub
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <div class="text-2xl font-bold text-emerald-700 mb-6">
+                Rp 2.500.000
+                <span class="text-sm font-normal text-emerald-800/40"
+                  >/ night</span
+                >
+              </div>
+              <button
+                class="select-room w-full border-2 border-emerald-800 text-emerald-800 py-3 rounded-xl font-bold text-sm hover:bg-emerald-800 hover:text-white transition-all duration-300"
+              >
+                Select Room
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-4xl overflow-hidden shadow-xl shadow-emerald-900/5 border border-emerald-50 group flex flex-col"
+        >
+          <div class="relative h-64 overflow-hidden">
+            <div
+              class="absolute top-4 left-4 z-10 bg-purple-600 text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg"
+            >
+              Premium
+            </div>
+            <img
+              src="../src/assets/room1.webp"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              alt="Executive Majesty"
+            />
+          </div>
+          <div class="p-8 flex flex-col grow">
+            <h3 class="text-2xl font-bold text-emerald-900 mb-3">
+              Executive Majesty
+            </h3>
+            <p class="text-emerald-800/50 text-sm leading-relaxed mb-6">
+              The pinnacle of Aetheria. A residence defined by absolute privacy, personalized service, and a private plunge pool that mirrors the sky.
+            </p>
+
+            <div class="space-y-3 mb-8">
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-blue-500 text-base">📶</span> Free High-Speed
+                WiFi
+              </div>
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-emerald-600 text-base">🤵</span> 24/7 Butler
+                Service
+              </div>
+              <div
+                class="flex items-center gap-3 text-xs text-emerald-800/70 font-medium"
+              >
+                <span class="text-emerald-500 text-base">🏊‍♀️</span> Infinity Plunge Pool
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <div class="text-2xl font-bold text-emerald-700 mb-6">
+                Rp 4.800.000
+                <span class="text-sm font-normal text-emerald-800/40"
+                  >/ night</span
+                >
+              </div>
+              <button
+                class="select-room w-full border-2 border-emerald-800 text-emerald-800 py-3 rounded-xl font-bold text-sm hover:bg-emerald-800 hover:text-white transition-all duration-300"
+              >
+                Select Room
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="facilities" class="py-32 bg-[#F9FBF9]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-serif font-bold text-emerald-900 mb-4">
+            Our Facilities
+          </h2>
+          <p class="text-emerald-800/60">
+            Premium amenities designed for your convenience
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-6">
+          <div
+            class="bg-white p-8 rounded-4xl shadow-xl shadow-emerald-900/5 flex flex-col items-center justify-center border border-emerald-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div class="text-4xl mb-6">🏊‍♂️</div>
+            <h4
+              class="text-xs uppercase tracking-widest font-black text-emerald-900 text-center"
+            >
+              Infinity Pool
+            </h4>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-4xl shadow-xl shadow-emerald-900/5 flex flex-col items-center justify-center border border-emerald-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div class="text-4xl mb-6">🍽️</div>
+            <h4
+              class="text-xs uppercase tracking-widest font-black text-emerald-900 text-center"
+            >
+              24h Restaurant
+            </h4>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-4xl shadow-xl shadow-emerald-900/5 flex flex-col items-center justify-center border border-emerald-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div class="text-4xl mb-6">💆‍♀️</div>
+            <h4
+              class="text-xs uppercase tracking-widest font-black text-emerald-900 text-center"
+            >
+              Spa & Wellness
+            </h4>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-4xl shadow-xl shadow-emerald-900/5 flex flex-col items-center justify-center border border-emerald-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div class="text-4xl mb-6">🏋️‍♂️</div>
+            <h4
+              class="text-xs uppercase tracking-widest font-black text-emerald-900 text-center"
+            >
+              Fitness Center
+            </h4>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-4xl shadow-xl shadow-emerald-900/5 flex flex-col items-center justify-center border border-emerald-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div class="text-4xl mb-6">🚗</div>
+            <h4
+              class="text-xs uppercase tracking-widest font-black text-emerald-900 text-center"
+            >
+              Airport Transfer
+            </h4>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-4xl shadow-xl shadow-emerald-900/5 flex flex-col items-center justify-center border border-emerald-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            <div class="text-4xl mb-6">🌐</div>
+            <h4
+              class="text-xs uppercase tracking-widest font-black text-emerald-900 text-center"
+            >
+              Fast WiFi
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <section id="reviews" class="py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8"
+        >
+          <div class="max-w-xl">
+            <h2 class="text-4xl font-serif font-bold text-emerald-900 mb-4">
+              Guest Experiences
+            </h2>
+            <p class="text-emerald-800/60 font-medium">
+              Read why our guests return to our sanctuary year after year.
+            </p>
+          </div>
+          <div class="flex gap-4">
+            <button
+              class="review-prev w-12 h-12 rounded-full border border-emerald-100 flex items-center justify-center text-emerald-900 hover:bg-emerald-900 hover:text-white transition-all"
+            >
+              ←
+            </button>
+            <button
+              class="review-next w-12 h-12 rounded-full border border-emerald-100 flex items-center justify-center text-emerald-900 hover:bg-emerald-900 hover:text-white transition-all"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div class="swiper review-slider overflow-visible">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide h-auto">
+              <div
+                class="bg-[#F9FBF9] p-10 rounded-[3rem] border border-emerald-50 flex flex-col justify-between h-full transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/5"
+              >
+                <div>
+                  <div class="flex text-orange-400 mb-6 text-sm">★★★★★</div>
+                  <p
+                    class="text-emerald-900 text-lg italic leading-relaxed mb-8"
+                  >
+                    "The perfect escape from the city hustle. The private villa
+                    was impeccable and the butler service was world-class."
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-700"
+                  >
+                    C
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-emerald-900 text-sm">
+                      Chisa
+                    </h5>
+                    <p
+                      class="text-[10px] uppercase tracking-widest text-emerald-600"
+                    >
+                      United Kingdom
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide h-auto">
+              <div
+                class="bg-[#F9FBF9] p-10 rounded-[3rem] border border-emerald-50 flex flex-col justify-between h-full transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/5"
+              >
+                <div>
+                  <div class="flex text-orange-400 mb-6 text-sm">★★★★★</div>
+                  <p
+                    class="text-emerald-900 text-lg italic leading-relaxed mb-8"
+                  >
+                    "I've traveled to many luxury resorts, but the serenity here
+                    is unmatched. The ritual spa is a must-try!"
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-700"
+                  >
+                    LH
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-emerald-900 text-sm">
+                      Luuk Herssen
+                    </h5>
+                    <p
+                      class="text-[10px] uppercase tracking-widest text-emerald-600"
+                    >
+                      Japan
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide h-auto">
+              <div
+                class="bg-[#F9FBF9] p-10 rounded-[3rem] border border-emerald-50 flex flex-col justify-between h-full transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/5"
+              >
+                <div>
+                  <div class="flex text-orange-400 mb-6 text-sm">★★★★★</div>
+                  <p
+                    class="text-emerald-900 text-lg italic leading-relaxed mb-8"
+                  >
+                    "An absolute sanctuary of peace. The attention to detail in
+                    every corner of the resort is truly remarkable."
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-700"
+                  >
+                    C
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-emerald-900 text-sm">
+                      Cantarella
+                    </h5>
+                    <p
+                      class="text-[10px] uppercase tracking-widest text-emerald-600"
+                    >
+                      France
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide h-auto">
+              <div
+                class="bg-[#F9FBF9] p-10 rounded-[3rem] border border-emerald-50 flex flex-col justify-between h-full transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/5"
+              >
+                <div>
+                  <div class="flex text-orange-400 mb-6 text-sm">★★★★★</div>
+                  <p
+                    class="text-emerald-900 text-lg italic leading-relaxed mb-8"
+                  >
+                    "Exceeded all expectations. The seamless blend of luxury and
+                    nature at Aetheria is something everyone must experience."
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-700"
+                  >
+                    XY
+                  </div>
+                  <div>
+                    <h5 class="font-bold text-emerald-900 text-sm">
+                      Xiangli Yao
+                    </h5>
+                    <p
+                      class="text-[10px] uppercase tracking-widest text-emerald-600"
+                    >
+                      Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <footer
+      id="footer"
+      class="bg-[#0f1715] pt-20 md:pt-32 pb-12 px-6 md:px-8 text-white"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-20 border-b border-white/5 pb-16 md:pb-24"
+      >
+        <div class="space-y-6 md:space-y-8 text-center sm:text-left">
+          <div
+            class="text-2xl md:text-3xl font-serif font-bold tracking-tighter"
+          >
+            AETHERIA
+            <span class="italic font-normal text-emerald-400">Grand.</span>
+          </div>
+          <p
+            class="text-white/40 leading-relaxed text-xs md:text-sm font-light max-w-xs mx-auto sm:mx-0"
+          >
+            "Harmonizing modern architecture with tropical ecosystems for the
+            soul seeking true peace."
+          </p>
+        </div>
+
+        <div class="space-y-6 md:space-y-8 text-center sm:text-left">
+          <h5
+            class="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold text-emerald-400/80"
+          >
+            Contact Us
+          </h5>
+          <ul class="space-y-4 text-xs md:text-sm font-light text-white/60">
+            <li
+              class="flex items-center sm:items-start justify-center sm:justify-start gap-4 hover:text-white transition"
+            >
+              <span class="text-base">📍</span> 7 Silverleaf Woods, Aetheria Path, Eldoria Realm 40321
+            </li>
+            <li
+              class="flex items-center justify-center sm:justify-start gap-4 hover:text-white transition"
+            >
+              <span class="text-base">📞</span> +62 888 1234567
+            </li>
+            <li
+              class="flex items-center justify-center sm:justify-start gap-4 hover:text-white transition"
+            >
+              <span class="text-base">✉️</span> info@aetheriagrand.com
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-6 md:space-y-8 text-center sm:text-left">
+          <h5
+            class="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold text-emerald-400/80"
+          >
+            Discovery
+          </h5>
+          <ul class="space-y-3 text-xs md:text-sm font-light text-white/60">
+            <li>
+              <a href="#" class="hover:text-emerald-400 transition"
+                >Our Story</a
+              >
+            </li>
+            <li>
+              <a href="#rooms" class="hover:text-emerald-400 transition"
+                >Signature Suites</a
+              >
+            </li>
+            <li>
+              <a href="#facilities" class="hover:text-emerald-400 transition"
+                >Our Facilities</a
+              >
+            </li>
+            <li>
+              <a href="#reviews" class="hover:text-emerald-400 transition"
+                >Guest Experiences</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-6 md:space-y-8 text-center sm:text-left">
+          <h5
+            class="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold text-emerald-400/80"
+          >
+            Follow Us
+          </h5>
+          <div
+            class="flex sm:flex-col justify-center sm:justify-start gap-6 sm:gap-4 text-xs md:text-sm font-light text-white/60"
+          >
+            <a
+              href="https://www.facebook.com"
+              class="flex items-center gap-3 hover:text-white transition"
+            >
+              <span class="text-lg">📘</span>
+              <span class="hidden sm:inline">Facebook</span>
+            </a>
+            <a
+              href="https://www.instagram.com"
+              class="flex items-center gap-3 hover:text-white transition"
+            >
+              <span class="text-lg">📸</span>
+              <span class="hidden sm:inline">Instagram</span>
+            </a>
+            <a
+              href="https://www.twitter.com"
+              class="flex items-center gap-3 hover:text-white transition"
+            >
+              <span class="text-lg">🐦</span>
+              <span class="hidden sm:inline">Twitter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto mt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] text-white/20 uppercase text-center md:text-left"
+      >
+        <span>© 2026 Aetheria Grand Bali. All rights reserved.</span>
+        <span class="opacity-50">Crafted by Opak</span>
+      </div>
+    </footer>
+
+    <div
+      id="toast-container"
+      class="fixed bottom-8 right-8 z-100 flex flex-col gap-3 pointer-events-none"
+    ></div>
+    <script src="../src/main.js"></script>
+  </body>
+</html>

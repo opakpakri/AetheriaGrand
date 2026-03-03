@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  /* Smooth Scroll agar perpindahan antar section elegan */
+  html {
+    scroll-behavior: smooth;
+  }
+}
